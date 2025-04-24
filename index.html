@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      rel="stylesheet"
+    />
+    <script defer src="main.js"></script>
+    <title>Frontend Mentor | Character Counter</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="body">
+    <header class="header">
+      <div class="header__content">
+        <img
+          src="./assets/images/logo-dark-theme.svg"
+          alt="Character Counter logo"
+          class="logo"
+        />
+        <button class="theme-toggle" aria-label="Toggle light/dark mode">
+          <img class="toggle-icon" src="./assets/images/icon-sun.svg" alt="" />
+        </button>
+      </div>
+      <h1 class="header__title">Analyze your text in real-time.</h1>
+    </header>
+
+    <main class="main">
+      <!-- Text Input Section -->
+      <section class="input-section">
+        <label for="text-input" class="visually-hidden">Text input area</label>
+        <textarea
+          id="text-input"
+          placeholder="Start typing here… (or paste your text)"
+          rows="8"
+        ></textarea>
+        <div class="warning-wrapper hidden" id="warning-wrapper">
+          <img src="assets/images/icon-info.svg" alt="" />
+          <p id="char-limit-warning" class="warning">
+            Limit reached! Your text exceeds
+            <span id="limit-value">0</span> characters.
+          </p>
+        </div>
+        <div class="settings-wrapper">
+          <div class="settings">
+            <div class="setting">
+              <input type="checkbox" id="exclude-spaces" />
+              <label for="exclude-spaces">Exclude Spaces</label>
+            </div>
+            <div class="setting">
+              <input type="checkbox" id="set-char-limit" />
+              <label for="set-char-limit">Set Character Limit</label>
+              <input
+                type="number"
+                id="char-limit"
+                class="char-limit-input hidden"
+                placeholder="e.g. 200"
+              />
+            </div>
+          </div>
+
+          <p class="reading-time">
+            Approx. reading time: <span id="reading-time">0</span> minute(s)
+          </p>
+        </div>
+      </section>
+
+      <!-- Stats Section -->
+      <section class="stats-section" aria-label="Text Statistics">
+        <div class="stat char-count">
+          <p class="stat__value" id="char-count">0</p>
+          <p class="stat__label">Total Characters</p>
+        </div>
+        <div class="stat word-count">
+          <p class="stat__value" id="word-count">0</p>
+          <p class="stat__label">Word Count</p>
+        </div>
+        <div class="stat sentence-count">
+          <p class="stat__value" id="sentence-count">0</p>
+          <p class="stat__label">Sentence Count</p>
+        </div>
+      </section>
+
+      <!-- Letter Density -->
+      <section class="density-section">
+        <h2 class="density-title">Letter Density</h2>
+        <p class="density-empty" id="density-empty">
+          No characters found. Start typing to see letter density.
+        </p>
+        <div id="letter-density-output" class="density-output"></div>
+        <button
+          id="toggle-density"
+          class="toggle-density hidden"
+          aria-expanded="false"
+        >
+          See More
+        </button>
+      </section>
+    </main>
+  </body>
+</html>
